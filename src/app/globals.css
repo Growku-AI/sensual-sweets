@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+/* Sensual Sweets design tokens are mirrored from the provided showcase CSS. */
+:root {
+  --ss-bg: #07000e;
+  --ss-surface: #0e0018;
+  --ss-surface-2: #110022;
+  --ss-text: rgba(255, 255, 255, 0.95);
+  --ss-muted: rgba(255, 255, 255, 0.65);
+  --ss-dim: rgba(255, 255, 255, 0.4);
+  --ss-border: rgba(255, 255, 255, 0.1);
+  --ss-his: #3b82f6;
+  --ss-his-deep: #1e3a8a;
+  --ss-hers: #e11d48;
+  --ss-hers-deep: #7f1d1d;
+  --ss-duo: #c026d3;
+  --ss-duo-gradient: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #c026d3 50%,
+    #e11d48 100%
+  );
+  --ss-duo-gradient-hover: linear-gradient(
+    135deg,
+    #60a5fa 0%,
+    #d946ef 50%,
+    #f43f5e 100%
+  );
+}
+
 /* ─── Custom Property for Rotating Neon Border ─── */
 @property --neon-angle {
   syntax: "<angle>";
@@ -47,6 +75,21 @@
   50% { transform: scale(1.3); opacity: 1; }
 }
 
+@keyframes orb-breath {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes gummy-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); }
+  50% { transform: translate3d(0, -16px, 0) rotate(6deg); }
+}
+
+@keyframes product-rise {
+  from { opacity: 0; transform: translateY(34px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* ─── Tailwind Theme ─── */
 @theme inline {
   --font-playfair: "Playfair Display", Georgia, serif;
@@ -66,7 +109,11 @@ html {
 }
 
 body {
-  background: #07000e;
+  background:
+    radial-gradient(65% 55% at 8% 0%, rgba(59, 130, 246, 0.12), transparent 66%),
+    radial-gradient(55% 45% at 92% 8%, rgba(225, 29, 72, 0.11), transparent 66%),
+    radial-gradient(45% 40% at 50% 100%, rgba(192, 38, 211, 0.08), transparent 62%),
+    #07000e;
   color: white;
   font-family: var(--font-raleway, "Raleway", ui-sans-serif, sans-serif);
   -webkit-font-smoothing: antialiased;
@@ -88,7 +135,7 @@ body {
 
 /* ─── Gradient Text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #c084fc 0%, #ec4899 45%, #f87171 100%);
+  background: var(--ss-duo-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -98,10 +145,10 @@ body {
 .gradient-text-animate {
   background: linear-gradient(
     135deg,
-    #c084fc 0%,
-    #ec4899 30%,
-    #f87171 60%,
-    #c084fc 100%
+    #60a5fa 0%,
+    #d946ef 34%,
+    #f43f5e 66%,
+    #60a5fa 100%
   );
   background-size: 400% 100%;
   -webkit-background-clip: text;
@@ -113,8 +160,9 @@ body {
 
 /* ─── Glow Effects ─── */
 .text-glow {
-  filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.7))
-          drop-shadow(0 0 50px rgba(236, 72, 153, 0.4));
+  filter: drop-shadow(0 0 20px rgba(192, 38, 211, 0.65))
+          drop-shadow(0 0 54px rgba(59, 130, 246, 0.28))
+          drop-shadow(0 0 54px rgba(225, 29, 72, 0.24));
 }
 
 .glow-sm {
@@ -140,33 +188,30 @@ body {
   padding: 2px;
   background: conic-gradient(
     from var(--neon-angle) at 50% 50%,
-    #6d28d9 0%,
-    #9333ea 15%,
-    #db2777 35%,
-    #ef4444 50%,
-    #db2777 65%,
-    #9333ea 85%,
-    #6d28d9 100%
+    rgba(59, 130, 246, 0.78) 0%,
+    rgba(192, 38, 211, 0.54) 34%,
+    rgba(225, 29, 72, 0.78) 66%,
+    rgba(59, 130, 246, 0.78) 100%
   );
   animation: neon-rotate var(--neon-speed, 3s) linear infinite;
-  border-radius: 16px;
+  border-radius: 24px;
   box-shadow:
-    0 0 25px rgba(109, 40, 217, 0.35),
-    0 0 50px rgba(219, 39, 119, 0.2),
-    0 0 80px rgba(239, 68, 68, 0.1);
+    0 0 25px rgba(59, 130, 246, 0.2),
+    0 0 50px rgba(192, 38, 211, 0.14),
+    0 0 80px rgba(225, 29, 72, 0.1);
   transition: box-shadow 0.3s ease;
 }
 
 .neon-card-outer:hover {
   box-shadow:
-    0 0 40px rgba(109, 40, 217, 0.6),
-    0 0 80px rgba(219, 39, 119, 0.35),
-    0 0 120px rgba(239, 68, 68, 0.2);
+    0 0 40px rgba(59, 130, 246, 0.34),
+    0 0 80px rgba(192, 38, 211, 0.26),
+    0 0 120px rgba(225, 29, 72, 0.18);
 }
 
 .neon-card-inner {
   background: #0e0018;
-  border-radius: 14px;
+  border-radius: 22px;
   height: 100%;
   width: 100%;
   position: relative;
@@ -179,7 +224,7 @@ body {
   inset: 0;
   background: radial-gradient(
     ellipse at top left,
-    rgba(109, 40, 217, 0.08) 0%,
+    rgba(59, 130, 246, 0.08) 0%,
     transparent 60%
   );
   pointer-events: none;
@@ -188,13 +233,12 @@ body {
 /* ─── Gradient Backgrounds ─── */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.06) 1px, transparent 1px);
-  background-size: 50px 50px;
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 .gradient-button {
-  background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #dc2626 100%);
+  background: var(--ss-duo-gradient);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -204,7 +248,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #ef4444 100%);
+  background: var(--ss-duo-gradient-hover);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -222,10 +266,10 @@ body {
 .section-divider {
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, #7c3aed, #ec4899, #ef4444);
+  background: var(--ss-duo-gradient);
   border-radius: 2px;
   margin: 0 auto 1.5rem;
-  box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 12px rgba(192, 38, 211, 0.5);
 }
 
 /* ─── Step Line Connector ─── */
@@ -248,3 +292,14 @@ body {
 .star:nth-child(3) { animation-delay: 0.4s; }
 .star:nth-child(4) { animation-delay: 0.6s; }
 .star:nth-child(5) { animation-delay: 0.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -7,35 +7,35 @@ const steps = [
   {
     number: "01",
     icon: Package,
-    title: "Choose Your Formula",
+    title: "Choose the pair",
     description:
-      "Browse our four unique blends and select the one that matches your intention — stamina, desire, endurance, or the full experience.",
-    color: "from-purple-600 to-violet-700",
-    shadowColor: "rgba(124, 58, 237, 0.5)",
+      "Start with HIS, HERS, or the bundled DUO set. The range is color-coded so the webshop decision feels immediate.",
+    color: "from-blue-600 to-fuchsia-700",
+    shadowColor: "rgba(59, 130, 246, 0.5)",
   },
   {
     number: "02",
     icon: Candy,
-    title: "Take Two Gummies",
+    title: "Make it a ritual",
     description:
-      "Enjoy two gummies 30–45 minutes before the moment. Our proprietary fast-absorption formula starts working before you know it.",
-    color: "from-pink-600 to-rose-600",
-    shadowColor: "rgba(219, 39, 119, 0.5)",
+      "Take the gummies together 30 minutes before the evening. No complicated instructions, no clinical feeling.",
+    color: "from-fuchsia-600 to-rose-600",
+    shadowColor: "rgba(192, 38, 211, 0.5)",
   },
   {
     number: "03",
     icon: Heart,
-    title: "Feel the Difference",
+    title: "Own the night",
     description:
-      "Experience enhanced energy, heightened sensation, and sustained performance. Natural ingredients. Real results. Every time.",
-    color: "from-red-600 to-rose-500",
-    shadowColor: "rgba(220, 38, 38, 0.5)",
+      "Shared anticipation, premium flavor, and a product experience designed for confidence from first touch to checkout.",
+    color: "from-rose-600 to-red-500",
+    shadowColor: "rgba(225, 29, 72, 0.5)",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-24 sm:py-32" id="ritual">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-purple-800/8 blur-[140px]" />
@@ -51,15 +51,16 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="mb-24 text-center"
         >
-          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-red-400 uppercase">
-            Simple Process
+          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-rose-300 uppercase">
+            The ritual
           </p>
           <div className="section-divider" />
           <h2 className="font-playfair text-5xl font-bold text-white md:text-6xl">
-            How It <span className="gradient-text italic">Works</span>
+            How it <span className="gradient-text italic">works</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/50">
-            Three effortless steps to your most unforgettable night.
+            A simple purchase path, a clean product story, and a ritual that
+            makes the DUO bundle feel like the obvious choice.
           </p>
         </motion.div>
 
@@ -144,8 +145,8 @@ export default function HowItWorks() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-14 text-center text-xs text-white/25"
         >
-          Results may vary. Sensual Sweets uses only natural ingredients. Not
-          intended to diagnose, treat, cure, or prevent any disease.
+          Results may vary. Sensual Sweets products are for adults 18+ and are
+          not intended to diagnose, treat, cure, or prevent any disease.
         </motion.p>
       </div>
     </section>

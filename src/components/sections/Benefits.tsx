@@ -7,37 +7,37 @@ import { NeonCard } from "@/components/NeonCard";
 const benefits = [
   {
     icon: Zap,
-    title: "Supercharged Performance",
+    title: "HIS/HERS Pairing",
     description:
-      "Natural adaptogens and L-Arginine work together to increase blood flow, energy, and stamina when it matters most.",
-    color: "from-purple-500 to-violet-600",
-    glow: "rgba(139, 92, 246, 0.4)",
+      "Two formulas with a clear role: HIS for drive and endurance, HERS for sensation and mood, designed to be taken as one ritual.",
+    color: "from-blue-500 to-fuchsia-600",
+    glow: "rgba(59, 130, 246, 0.4)",
     speed: 3,
   },
   {
     icon: Leaf,
-    title: "Pure Natural Ingredients",
+    title: "Botanical Actives",
     description:
-      "Zero synthetic additives, zero compromise. Every ingredient is 100% plant-based, vegan certified, and third-party tested.",
-    color: "from-pink-500 to-rose-600",
-    glow: "rgba(236, 72, 153, 0.4)",
+      "Ashwagandha, maca, damiana, saffron, tribulus, B6, zinc, and L-arginine in clean vegan gummies.",
+    color: "from-fuchsia-500 to-rose-600",
+    glow: "rgba(192, 38, 211, 0.4)",
     speed: 3.5,
   },
   {
     icon: Timer,
-    title: "Fast-Acting Formula",
+    title: "30-Minute Ritual",
     description:
-      "Our proprietary absorption matrix delivers peak effects within 30–45 minutes. No waiting. No wondering.",
-    color: "from-red-500 to-rose-500",
-    glow: "rgba(239, 68, 68, 0.4)",
+      "Take the gummies before the evening starts. The routine is simple, discreet, and easy to repeat.",
+    color: "from-rose-600 to-red-500",
+    glow: "rgba(225, 29, 72, 0.4)",
     speed: 2.5,
   },
   {
     icon: ShieldCheck,
-    title: "Discreet & Premium",
+    title: "Premium Webshop Flow",
     description:
-      "Elegant, unmarked packaging. Privacy from order to delivery. Designed for the couple who values both pleasure and discretion.",
-    color: "from-fuchsia-500 to-pink-600",
+      "Straightforward bundles, subscription savings, secure checkout, and unmarked delivery from order to doorstep.",
+    color: "from-blue-500 via-fuchsia-500 to-rose-600",
     glow: "rgba(217, 70, 239, 0.4)",
     speed: 4,
   },
@@ -59,7 +59,7 @@ const cardVariants: Variants = {
 
 export default function Benefits() {
   return (
-    <section className="relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-24 sm:py-32" id="benefits">
       {/* Background accent */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-pink-600/8 blur-[120px]" />
@@ -75,19 +75,18 @@ export default function Benefits() {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-purple-400 uppercase">
-            Why Choose Us
+          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-blue-300 uppercase">
+            Why it works
           </p>
           <div className="section-divider" />
           <h2 className="font-playfair mx-auto max-w-2xl text-5xl font-bold leading-tight text-white md:text-6xl">
             Crafted for{" "}
-            <span className="gradient-text italic">Extraordinary</span>{" "}
-            Moments
+            <span className="gradient-text italic">shared</span>{" "}
+            momentum
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/50">
-            Science-backed ingredients. Sensual results. Every formula is
-            designed with a single purpose — to elevate your most intimate
-            experiences.
+            The brand system uses HIS blue, HERS red, and the DUO magenta hinge
+            to make the product range easy to understand at first glance.
           </p>
         </motion.div>
 

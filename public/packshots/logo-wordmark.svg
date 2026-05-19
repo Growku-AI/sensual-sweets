@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="600" height="120" role="img" aria-label="Sensual Sweets">
+  <defs>
+    <linearGradient id="ssDuo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"></stop>
+      <stop offset="50%" stop-color="#c026d3"></stop>
+      <stop offset="100%" stop-color="#e11d48"></stop>
+    </linearGradient>
+    <filter id="ssGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+  <text x="300" y="80" text-anchor="middle" font-family="&#39;Playfair Display&#39;, Georgia, serif" font-weight="900" font-style="italic" font-size="72" letter-spacing="2" fill="url(#ssDuo)" filter="url(#ssGlow)">Sensual Sweets</text>
+</svg>

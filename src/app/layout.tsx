@@ -16,9 +16,9 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Sensual Sweets — Enhanced Performance Gummies",
+  title: "Sensual Sweets — His · Hers · One Ritual",
   description:
-    "Premium gummies scientifically crafted for enhanced passion, stamina, and performance. All natural. All pleasure.",
+    "A cinematic webshop landing page for premium HIS and HERS adult wellness gummies, built around the Sensual Sweets DUO ritual.",
 };
 
 export default function RootLayout({

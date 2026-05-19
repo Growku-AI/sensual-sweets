@@ -6,8 +6,8 @@ import { Sparkles, Instagram, Twitter, Heart } from "lucide-react";
 const navLinks = [
   { label: "Shop", href: "#products" },
   { label: "Benefits", href: "#benefits" },
+  { label: "Ritual", href: "#ritual" },
   { label: "Reviews", href: "#reviews" },
-  { label: "About", href: "#" },
   { label: "FAQ", href: "#" },
   { label: "Contact", href: "#" },
 ];
@@ -34,33 +34,32 @@ export default function Footer() {
             <div className="mb-6 flex justify-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-5 py-2 text-sm font-medium text-pink-200">
                 <Sparkles size={14} className="text-pink-400" />
-                Limited Time — Free Shipping on All Orders
+                Free express shipping on DUO orders
                 <Sparkles size={14} className="text-pink-400" />
               </span>
             </div>
 
             <h2 className="font-playfair mb-6 text-5xl font-black leading-tight text-white md:text-7xl">
-              Ready to{" "}
+              Start the{" "}
               <span className="gradient-text-animate text-glow italic">
-                Transform
+                DUO
               </span>{" "}
-              Your Nights?
+              Ritual?
             </h2>
 
             <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-white/55">
-              Join over 50,000 couples who&apos;ve discovered a new level of
-              passion, connection, and pleasure. Your most unforgettable
-              experience starts here.
+              Shop the paired HIS/HERS bundle, save €9.95, and keep the
+              ritual stocked with subscription delivery.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <button className="gradient-button glow-lg inline-flex items-center gap-2 rounded-full px-12 py-5 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(168,85,247,0.8)]">
                 <Sparkles size={18} />
-                Shop Now
+                Shop the bundle
               </button>
 
               <button className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-12 py-5 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-pink-400/40 hover:bg-pink-500/10">
-                Subscribe &amp; Save 20%
+                Subscribe &amp; save 20%
               </button>
             </div>
           </motion.div>
@@ -77,7 +76,7 @@ export default function Footer() {
                 Sensual Sweets
               </div>
               <p className="text-xs tracking-widest text-white/30 uppercase">
-                Feel the Rush. Own the Night.
+                His · Hers · One Ritual
               </p>
             </div>
 
@@ -126,9 +125,9 @@ export default function Footer() {
             </p>
             <p className="flex items-center gap-1.5 text-xs text-white/20">
               &copy; {new Date().getFullYear()} Sensual Sweets. All rights
-              reserved. Made with{" "}
+              reserved. Made for{" "}
               <Heart size={10} className="text-pink-500" fill="currentColor" />{" "}
-              for lovers.
+              shared rituals.
             </p>
           </div>
         </div>

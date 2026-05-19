@@ -6,36 +6,36 @@ import { NeonCard } from "@/components/NeonCard";
 
 const testimonials = [
   {
-    name: "Sarah M.",
+    name: "Noah & Eva",
     handle: "Verified Buyer",
-    product: "Purple Passion",
+    product: "DUO Bundle",
     rating: 5,
     quote:
-      "Absolutely life-changing. Purple Passion gave me energy I didn't know I was missing. My partner noticed the difference immediately — we're obsessed.",
-    avatar: "SM",
-    avatarGradient: "from-purple-500 to-violet-600",
+      "The packaging felt premium and the ritual made date night feel intentional again. We ordered the subscription after the first box.",
+    avatar: "NE",
+    avatarGradient: "from-blue-500 to-fuchsia-600",
     speed: 3.5,
   },
   {
-    name: "Marcus R.",
+    name: "Mila",
     handle: "Verified Buyer",
-    product: "Electric Bliss",
+    product: "HERS Formula",
     rating: 5,
     quote:
-      "I was skeptical at first, but wow. Electric Bliss works exactly as described. These gummies are now a permanent part of our routine. No going back.",
-    avatar: "MR",
-    avatarGradient: "from-pink-500 to-rose-600",
+      "I bought HERS first and came back for the bundle. The flavor, checkout, and delivery all felt considered.",
+    avatar: "MI",
+    avatarGradient: "from-fuchsia-500 to-rose-600",
     speed: 2.8,
   },
   {
-    name: "Jessica & Tom L.",
+    name: "Thomas",
     handle: "Verified Buyers",
-    product: "Cherry Rush",
+    product: "HIS Formula",
     rating: 5,
     quote:
-      "Finally something that delivers on its promise. The Cherry Rush genuinely works within the hour. It's become our date night ritual — highly recommend.",
-    avatar: "JL",
-    avatarGradient: "from-red-500 to-pink-600",
+      "The HIS/HERS split made the product easy to understand. It looks like a real wellness brand, not a novelty item.",
+    avatar: "TH",
+    avatarGradient: "from-blue-600 to-blue-400",
     speed: 4,
   },
 ];
@@ -88,17 +88,17 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-pink-400 uppercase">
-            Real Stories
+          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-fuchsia-300 uppercase">
+            Social proof
           </p>
           <div className="section-divider" />
           <h2 className="font-playfair text-5xl font-bold text-white md:text-6xl">
-            What Our{" "}
-            <span className="gradient-text italic">Lovers</span> Say
+            Why customers{" "}
+            <span className="gradient-text italic">come back</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/50">
-            Over 50,000 couples trust Sensual Sweets. Here&apos;s what a few of
-            them have to say.
+            Premium webshop positioning needs believable proof, clear product
+            names, and a repeat-order path that feels natural.
           </p>
         </motion.div>
 
@@ -176,7 +176,7 @@ export default function Testimonials() {
           <div className="h-16 w-px bg-white/10" />
           <div className="text-center">
             <div className="font-playfair gradient-text text-5xl font-black">
-              50K+
+              1,200+
             </div>
             <p className="mt-2 text-xs text-white/40">Verified Reviews</p>
           </div>
