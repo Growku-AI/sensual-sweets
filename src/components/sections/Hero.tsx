@@ -10,6 +10,8 @@ import {
   Sparkles,
   Star,
 } from "lucide-react";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import { CartIndicator } from "@/components/CartIndicator";
 
 const proofItems = [
   { icon: Star, label: "4.9 from 1,200+ reviews" },
@@ -113,7 +115,7 @@ export default function Hero() {
                 item === "Reviews"
                   ? "#reviews"
                   : item === "Ritual"
-                    ? "#how-it-works"
+                    ? "#ritual"
                     : "#products"
               }
               className="text-xs font-semibold tracking-[0.12em] text-white/55 uppercase transition-colors hover:text-white"
@@ -122,13 +124,16 @@ export default function Hero() {
             </a>
           ))}
         </div>
-        <a
-          href="#products"
-          className="gradient-button inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold tracking-[0.08em] text-white uppercase shadow-[0_0_24px_rgba(192,38,211,0.35)]"
-        >
-          <ShoppingBag size={15} />
-          <span>Shop now</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <CartIndicator />
+          <a
+            href="#products"
+            className="gradient-button inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold tracking-[0.08em] text-white uppercase shadow-[0_0_24px_rgba(192,38,211,0.35)]"
+          >
+            <ShoppingBag size={15} />
+            <span>Shop now</span>
+          </a>
+        </div>
       </nav>
 
       <div
@@ -175,15 +180,15 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.42, ease: "easeOut" }}
             className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-10 lg:justify-start"
           >
-            <a
-              href="#products"
+            <AddToCartButton
+              productId="duo"
+              iconSize={18}
               className="gradient-button glow-md inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold tracking-[0.08em] text-white uppercase transition-transform hover:scale-[1.02]"
             >
-              <ShoppingBag size={18} />
-              <span>Shop the DUO bundle</span>
-            </a>
+              Shop the DUO bundle
+            </AddToCartButton>
             <a
-              href="#how-it-works"
+              href="#ritual"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-8 py-4 text-sm font-bold tracking-[0.08em] text-white/80 uppercase backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/[0.09] hover:text-white"
             >
               <PlayCircle size={18} />

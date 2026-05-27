@@ -2,14 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Sparkles, Instagram, Twitter, Heart } from "lucide-react";
+import { AddToCartButton } from "@/components/AddToCartButton";
 
 const navLinks = [
   { label: "Shop", href: "#products" },
   { label: "Benefits", href: "#benefits" },
   { label: "Ritual", href: "#ritual" },
   { label: "Reviews", href: "#reviews" },
-  { label: "FAQ", href: "#" },
-  { label: "Contact", href: "#" },
 ];
 
 export default function Footer() {
@@ -53,14 +52,22 @@ export default function Footer() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="gradient-button glow-lg inline-flex items-center gap-2 rounded-full px-12 py-5 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(168,85,247,0.8)]">
+              <AddToCartButton
+                productId="duo"
+                withIcon={false}
+                className="gradient-button glow-lg inline-flex items-center gap-2 rounded-full px-12 py-5 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(168,85,247,0.8)]"
+              >
                 <Sparkles size={18} />
-                Shop the bundle
-              </button>
+                <span>Shop the bundle</span>
+              </AddToCartButton>
 
-              <button className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-12 py-5 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-pink-400/40 hover:bg-pink-500/10">
+              <AddToCartButton
+                productId="subscribe"
+                withIcon={false}
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-12 py-5 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-pink-400/40 hover:bg-pink-500/10"
+              >
                 Subscribe &amp; save 20%
-              </button>
+              </AddToCartButton>
             </div>
           </motion.div>
         </div>

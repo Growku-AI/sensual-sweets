@@ -5,6 +5,8 @@ import { motion, type Variants } from "framer-motion";
 import { HeartPulse, ShoppingBag, Sparkles, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { NeonCard } from "@/components/NeonCard";
+import { AddToCartButton } from "@/components/AddToCartButton";
+import type { CartProductId } from "@/lib/cart";
 
 const formulas = [
   {
@@ -182,8 +184,9 @@ export default function Products() {
                   </div>
 
                   <div className="mt-9 flex flex-wrap items-center gap-4">
-                    <a
-                      href="#products"
+                    <AddToCartButton
+                      productId={formula.key as CartProductId}
+                      iconSize={16}
                       className={[
                         "inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-xs font-bold tracking-[0.1em] text-white uppercase transition-transform hover:scale-[1.02]",
                         isHis
@@ -191,9 +194,8 @@ export default function Products() {
                           : "bg-rose-600 shadow-[0_0_22px_rgba(225,29,72,0.42)]",
                       ].join(" ")}
                     >
-                      <ShoppingBag size={16} />
                       {formula.cta}
-                    </a>
+                    </AddToCartButton>
                     <span className="font-playfair gradient-text text-3xl font-black">
                       {formula.price}
                     </span>
@@ -256,13 +258,13 @@ export default function Products() {
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="#products"
+            <AddToCartButton
+              productId="duo"
+              iconSize={18}
               className="gradient-button glow-md inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold tracking-[0.08em] text-white uppercase transition-transform hover:scale-[1.02]"
             >
-              <ShoppingBag size={18} />
               Shop the DUO Bundle — €89.95
-            </a>
+            </AddToCartButton>
             <a
               href="#benefits"
               className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.05] px-8 py-4 text-sm font-bold tracking-[0.08em] text-white/75 uppercase backdrop-blur-sm transition-all hover:border-white/30 hover:text-white"
@@ -279,12 +281,24 @@ export default function Products() {
           transition={{ duration: 0.6 }}
           className="mt-14 grid gap-5 md:grid-cols-3"
         >
-          {[
-            ["Starter Set", "Trial pack for the first shared ritual", "€24.95"],
-            ["DUO Bundle", "The full paired experience", "€89.95"],
-            ["Subscribe", "Monthly delivery with 20% savings", "€71.95"],
-          ].map(([name, description, price]) => (
-            <NeonCard key={name} speed={3.6}>
+          {(
+            [
+              [
+                "starter",
+                "Starter Set",
+                "Trial pack for the first shared ritual",
+                "€24.95",
+              ],
+              ["duo", "DUO Bundle", "The full paired experience", "€89.95"],
+              [
+                "subscribe",
+                "Subscribe",
+                "Monthly delivery with 20% savings",
+                "€71.95",
+              ],
+            ] as const
+          ).map(([id, name, description, price]) => (
+            <NeonCard key={id} speed={3.6}>
               <div className="p-6">
                 <p className="text-xs font-bold tracking-[0.16em] text-fuchsia-200 uppercase">
                   {name}
@@ -296,12 +310,13 @@ export default function Products() {
                   <span className="font-playfair text-3xl font-black italic text-white">
                     {price}
                   </span>
-                  <a
-                    href="#products"
+                  <AddToCartButton
+                    productId={id}
+                    withIcon={false}
                     className="rounded-full border border-white/15 px-4 py-2 text-xs font-bold tracking-[0.1em] text-white/70 uppercase transition-colors hover:text-white"
                   >
                     Add
-                  </a>
+                  </AddToCartButton>
                 </div>
               </div>
             </NeonCard>

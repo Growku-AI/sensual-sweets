@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Raleway } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/lib/cart";
+import { CartToast } from "@/components/CartToast";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -18,7 +20,14 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Sensual Sweets — His · Hers · One Ritual",
   description:
-    "A cinematic webshop landing page for premium HIS and HERS adult wellness gummies, built around the Sensual Sweets DUO ritual.",
+    "Premium HIS and HERS adult wellness gummies, built around the Sensual Sweets DUO ritual. Two formulas, one shared moment.",
+  metadataBase: new URL("https://sensual-sweets.growku.dev"),
+  openGraph: {
+    title: "Sensual Sweets — His · Hers · One Ritual",
+    description:
+      "Two erotic-wellness gummy formulas designed to be taken together. Discreet delivery, vegan botanicals, 4.9★ from 1,200+ reviews.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +40,12 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${raleway.variable} antialiased`}
     >
-      <body className="bg-[#07000e] text-white">{children}</body>
+      <body className="bg-[#07000e] text-white">
+        <CartProvider>
+          {children}
+          <CartToast />
+        </CartProvider>
+      </body>
     </html>
   );
 }
