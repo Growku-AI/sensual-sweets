@@ -2,8 +2,13 @@ node_modules
 .next
 .git
 .gitignore
-.env*
-!.env.example
+# Dokploy writes the configured env vars to `.env` in the build context just
+# before `docker build` (createEnvFile: true). Letting that one through is
+# how NEXT_PUBLIC_* get baked into the JS bundle at `next build` time. Local
+# `.env.local` etc. would only matter if the build ran on a developer
+# machine — Dokploy clones fresh, so they never exist on the build server.
+.env.local
+.env.*.local
 .DS_Store
 *.log
 npm-debug.log*
