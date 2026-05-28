@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ShoppingBag, X } from "lucide-react";
+import { ArrowRight, Check, ShoppingBag, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { PRODUCTS, useCart } from "@/lib/cart";
 
@@ -9,9 +9,14 @@ import { PRODUCTS, useCart } from "@/lib/cart";
  * Glass toast that pops in when an item is added. Auto-dismisses after a
  * few seconds, but the user can also flick it away. Stays anchored to the
  * bottom-right so it never fights the hero CTA on mobile.
+ *
+ * When Shopify is wired and the cart has a `checkoutUrl`, the toast adds a
+ * "Checkout" CTA next to the dismiss button so the user can jump straight
+ * to the Shopify-hosted checkout without hunting for the cart elsewhere.
  */
 export function CartToast() {
-  const { lastAdded, count, totalEur } = useCart();
+  const { lastAdded, count, totalEur, checkoutUrl, isBusy, checkout } =
+    useCart();
   const [visible, setVisible] = useState(false);
   const [bumpKey, setBumpKey] = useState(0);
   const lastSeen = useRef<string | null>(null);
@@ -26,11 +31,12 @@ export function CartToast() {
     setBumpKey((k) => k + 1);
     setVisible(true);
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setVisible(false), 3600);
+    // Slightly longer dwell when checkout is available so the CTA is reachable.
+    timer.current = setTimeout(() => setVisible(false), checkoutUrl ? 5200 : 3600);
     return () => {
       if (timer.current) clearTimeout(timer.current);
     };
-  }, [lastAdded, count]);
+  }, [lastAdded, count, checkoutUrl]);
 
   const product = lastAdded ? PRODUCTS[lastAdded] : null;
   const totalLabel = `€${totalEur.toFixed(2).replace(".", ",")}`;
@@ -68,10 +74,22 @@ export function CartToast() {
                 </span>
               </p>
             </div>
+            {checkoutUrl ? (
+              <button
+                type="button"
+                onClick={checkout}
+                disabled={isBusy}
+                className="inline-flex shrink-0 items-center gap-1 rounded-full bg-gradient-to-br from-fuchsia-500 to-rose-500 px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_0_18px_rgba(244,114,182,0.45)] transition-transform hover:scale-105 disabled:opacity-60"
+                aria-label="Go to checkout"
+              >
+                <span>Checkout</span>
+                <ArrowRight size={12} strokeWidth={2.5} />
+              </button>
+            ) : null}
             <button
               type="button"
               onClick={() => setVisible(false)}
-              className="grid h-7 w-7 place-items-center rounded-full border border-white/10 text-white/55 transition-colors hover:border-white/30 hover:text-white"
+              className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/10 text-white/55 transition-colors hover:border-white/30 hover:text-white"
               aria-label="Dismiss"
             >
               <X size={13} />
