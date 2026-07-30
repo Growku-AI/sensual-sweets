@@ -45,3 +45,29 @@ next-env.d.ts
 /.claude/skills/
 /.codex/
 /.agents/
+
+# ── Claude Code: never commit ────────────────────────────────────────────────
+# Personal / local overrides
+.claude/settings.local.json
+CLAUDE.local.md
+**/CLAUDE.local.md
+
+# Runtime state Claude generates
+.claude/todos/
+.claude/logs/
+.claude/cache/
+.claude/hooks/__pycache__/
+
+# ── Secrets ──────────────────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
+*.token
+
+
+# Claude template: .claude/ is intentionally tracked in this repo (overrides global ignore)
+!/.claude/
+!/CLAUDE.md
+!/AGENTS.md
+!/.mcp.json

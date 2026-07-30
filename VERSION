@@ -1,0 +1,9 @@
+1.2.0
+2026-07-30
+Agent factory (agent-factory meta-agent + /new-agent command, agent frontmatter validation); canonical top-level layout (app/ plans/ lib/ tests/ scaffold + READMEs, project-layout rule, layout warnings in validate-claude.sh).
+1.1.0
+2026-07-08
+Audit pass: hardened hooks (MultiEdit coverage, broader secret regex, jq fail-open), safer sync/validate scripts, deny-glob fixes, new /test command, test-writer agent, pr-hygiene rule, session-start/statusline/run-tests hooks, output-style template, CI validation workflow, docs sync.
+1.0.0
+2026-06-17
+Initial reusable project-level .claude/ template (rules, commands, agents, skills, hooks, output-styles, MCP, plugin example).
